@@ -4,8 +4,16 @@ module.exports = gql`
     type Query {
       info: String!
       feed: [Link]!
-      boss: Jordy!
       link(id: ID!): Link
+      allPokemon: [Pokemon]!
+    }
+
+    type Pokemon {
+      id: ID!
+      name: String!
+      attack: Float!
+      defense: Float!
+      type: String!
     }
 
     type Mutation {
@@ -14,7 +22,7 @@ module.exports = gql`
       # Update a link
       updateLink(id: ID!, url: String, description: String): Link
       # Delete a link
-      deleteLink(id: ID!): Link
+      deleteLink(id: ID!): String!
     }
 
     type Link {
